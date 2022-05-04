@@ -1,5 +1,3 @@
-export default function Footer():JSX.Element {
-    return (
-        <>"Value"</>
-    )
+export default function Footer(): JSX.Element {
+  return <>"Value"</>;
 }
