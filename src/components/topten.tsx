@@ -13,6 +13,12 @@ interface TopTenProps {
   toggleValue: boolean;
 }
 
+/*
+For 10 images/dog cards, if we set it so 3 are visible at any time then we will
+need to add the first 3 cards again at the end of the loop and change the translate percentage
+from 50 to 76.9% roughly.
+*/
+
 export default function TopTen(props: TopTenProps): JSX.Element {
   return (
     <>
