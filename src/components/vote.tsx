@@ -4,7 +4,7 @@
 export default function Vote():JSX.Element {
     return (
         <>
-            
+            "this is the vote"
         </>
     )
 }
