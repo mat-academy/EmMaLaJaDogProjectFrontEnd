@@ -2,17 +2,17 @@
     box-sizing: border-box;
 }
 
-body{
+body {
     font-family: Karla, Sans-Serif;
     margin: 0;
 }
 
-main{
+main {
     padding: 36px;
     align-items: center;
 }
 
-.header{
+.header {
     display: flex;
     align-items: center;
     height: 87px;
@@ -22,42 +22,156 @@ main{
     margin-bottom: 30px;
 }
 
-.logo{
+.footer {
+    text-align: center;
+    height: 87px;
+    background: #C2c9cf;
+    color: white;
+    padding: 20px;
+    margin-top: 30px;
+}
+
+.logo {
     margin: 10px;
     max-width: 82px;
 }
 
 .header--title{
-    font-size: 1.5rem;
+    font-size: 1.75rem;
     margin-right: auto;
 }
 
 .header--description{
-    font-size: 1rem;
+    font-size: 1.2rem;
     font-weight: 500;
+    font-family: Dosis, sans-serif;
 }
 
-.dogpic{
-    float: left;
-    width:  100px;
-    height: 100px;
-    object-fit: cover;
+.title {
+    text-align: center;
+    color: #3D3221;
+    font-family: Dosis, sans-serif;
+    font-size: 1.5rem;
 }
 
-.dogprofile{
+.top3 {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+   justify-content: center;
+   align-items: center;
+    background: #C2c9cf;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 85%;
+ 
+}
+
+.top3--element {
     display: flex;
     flex-direction: row;
     gap: 10px;
+    background: #E5E5E5;
+    border-radius: 10px;
+    padding: 15px;
+    width: 90%;
+    justify-content: space-between;
+    color: #948879;
+}
 
+.top3--button {
+   display: flex;
+   justify-content: center;
+}
+
+.button--refresh:hover {
+    background: linear-gradient(90.41deg, #711F8D 1.14%, #b04cd1 100%);
+}
+
+.button--refresh {
+    font-family: "Karla", sans-serif;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 5px;
+    background: linear-gradient(90.41deg, #3299d4 1.14%, #18bdda 100%);
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 5px 10px;
+}
+ 
+
+.voting{
+    display: flex;
+    flex-direction: row;
+    gap: 25px;
+   justify-content: center;
+    background: #C2c9cf;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 85%;
 }
 
 .voteCard{
     display: flex;
     flex-direction: column;
     gap: 10px;
+    background: #E5E5E5;
+    border-radius: 10px;
+    padding: 10px;
 }
 
-.voting{
+.dogpic{
+    float: left;
+    width:  250px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.dogprofile{
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
+    margin-right: 10px;
+    color: #948879;
 }
+
+.heart-icon {
+    cursor: pointer;
+    border: none;
+    background: none;
+}
+
+.top10 {
+    background: #C2c9cf;
+    height: 350px;
+    position: relative;
+    overflow: hidden;
+}
+
+.photobanner {
+    position:absolute; 
+    top:10px; 
+    bottom:10px;
+    left:0px; 
+    overflow:hidden; 
+    white-space: nowrap;
+    animation: bannermove 10s linear infinite;
+}
+
+.photobanner img {    
+    margin: 0 0.5em ;
+    border-radius: 10px;
+  }
+  
+  @keyframes bannermove {
+    0% {
+        transform: translate(0, 0);
+    }
+    100% {
+        transform: translate(-50%, 0);
+    }
+  }
