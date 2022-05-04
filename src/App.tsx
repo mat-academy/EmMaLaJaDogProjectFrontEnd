@@ -5,9 +5,9 @@ import Footer from "./components/footer";
 function App(): JSX.Element {
   return (
     <>
-      <Header />;
-      <Main />;
-      <Footer />;
+      <Header />
+      <Main />
+      <Footer />
     </>
   );
 }

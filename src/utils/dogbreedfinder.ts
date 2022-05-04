@@ -1,5 +1,8 @@
 export function dogbreedfinder(url: string): string {
   const urlArray = url.split("/");
-  const dogBreed = urlArray[4];
+  let dogBreed = urlArray[4];
+  if (dogBreed) {
+    dogBreed = dogBreed.toUpperCase();
+  }
   return dogBreed;
 }
