@@ -1,6 +1,47 @@
 //top3breed
 //separate component:
 //title, flexbox with 3 dogs
-export default function TopThree(): JSX.Element {
-  return <>"Value"</>;
+
+interface TopDogsInterface {
+  breed_name: string;
+  count: number
+ }
+
+interface TopThreeProps {
+  top10Dogs: TopDogsInterface[],
+  toggle: React.Dispatch<React.SetStateAction<boolean>>,
+  toggleValue: boolean
+}
+
+
+export default function TopThree(props: TopThreeProps): JSX.Element {
+
+  const top3Dogs = props.top10Dogs.slice(0,3);
+
+  console.log(top3Dogs)
+
+  function handleClick() {
+    props.toggle(!props.toggleValue)
+  }
+
+  return <>
+  <div className="top3">
+    <div className="top3--element">
+      <h3>{top3Dogs[0].breed_name}</h3>
+      <p>Paw Bar Chart</p>
+      <h3>⭐ {top3Dogs[0].count}</h3>
+    </div>
+    <div className="top3--element">
+      <h3>{top3Dogs[1].breed_name}</h3>
+      <p>Paw Bar Chart</p>
+      <h3>⭐ {top3Dogs[1].count}</h3>
+    </div>
+    <div className="top3--element">
+      <h3>{top3Dogs[2].breed_name}</h3>
+      <p>Paw Bar Chart</p>
+      <h3>⭐ {top3Dogs[2].count}</h3>
+    </div>
+  </div>
+  <button onClick={handleClick}>Refresh</button>
+  </>;
 }
