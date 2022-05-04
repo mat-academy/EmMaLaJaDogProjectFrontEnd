@@ -41,13 +41,14 @@ export default function Vote(): JSX.Element {
 
   return(
     <>
+      <h1>VOTE NOW</h1>
       <section className="voting">
         <div className="voteCard">
           <img className='dogpic' src={dog1} alt=''/>
           <div className="dogprofile">
+            
             <img onClick={() => submitFavourites(dogbreed1)} src={dog_heart} alt='' width={57} />
             <h3>{dogbreedfinder(dog1)}</h3>
-            {dogbreed1}
           </div>
         </div>
 
@@ -57,7 +58,6 @@ export default function Vote(): JSX.Element {
           <div className="dogprofile">
             <img onClick={() => submitFavourites(dogbreed2)} src={dog_heart} alt='' width={57} />
             <h3>{dogbreedfinder(dog2)}</h3>
-            {dogbreed2}
           </div>
         </div>
       </section>
