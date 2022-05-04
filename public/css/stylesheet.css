@@ -1,0 +1,38 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    font-family: Karla, Sans-Serif;
+    margin: 0;
+}
+
+main{
+    padding: 36px;
+    align-items: center;
+}
+
+.header{
+    display: flex;
+    align-items: center;
+    height: 87px;
+    background: #C2c9cf;
+    color: white;
+    padding: 20px;
+    margin-bottom: 30px;
+}
+
+.logo{
+    margin: 10px;
+    max-width: 82px;
+}
+
+.header--title{
+    font-size: 1.5rem;
+    margin-right: auto;
+}
+
+.header--description{
+    font-size: 1rem;
+    font-weight: 500;
+}
