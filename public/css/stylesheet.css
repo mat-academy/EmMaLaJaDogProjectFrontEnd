@@ -36,3 +36,28 @@ main{
     font-size: 1rem;
     font-weight: 500;
 }
+
+.dogpic{
+    float: left;
+    width:  100px;
+    height: 100px;
+    object-fit: cover;
+}
+
+.dogprofile{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+
+}
+
+.voteCard{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.voting{
+    display: flex;
+    flex-direction: row;
+}
