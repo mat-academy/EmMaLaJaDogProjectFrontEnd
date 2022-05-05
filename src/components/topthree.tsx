@@ -1,6 +1,7 @@
 //top3breed
 //separate component:
 //title, flexbox with 3 dogs
+import { readNameFormatter } from "../utils/readNameFormatter";
 
 interface TopDogsInterface {
   breed_name: string;
@@ -25,17 +26,17 @@ export default function TopThree(props: TopThreeProps): JSX.Element {
       <h1 className="title">TOP BREEDS</h1>
       <div className="top3">
         <div className="top3--element">
-          <h3>{top3Dogs[0].breed_name.toUpperCase()}</h3>
+          <h3>{readNameFormatter(top3Dogs[0].breed_name)}</h3>
           <p>Paw Bar Chart</p>
           <h3>⭐ {top3Dogs[0].count}</h3>
         </div>
         <div className="top3--element">
-          <h3>{top3Dogs[1].breed_name.toUpperCase()}</h3>
+          <h3>{readNameFormatter(top3Dogs[1].breed_name)}</h3>
           <p>Paw Bar Chart</p>
           <h3>⭐ {top3Dogs[1].count}</h3>
         </div>
         <div className="top3--element">
-          <h3>{top3Dogs[2].breed_name.toUpperCase()}</h3>
+          <h3>{readNameFormatter(top3Dogs[2].breed_name)}</h3>
           <p>Paw Bar Chart</p>
           <h3>⭐ {top3Dogs[2].count}</h3>
         </div>
