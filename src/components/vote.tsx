@@ -4,8 +4,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { dogbreedfinder } from "../utils/dogbreedfinder";
 import dog_heart from "../images/dog-heart.svg";
-import { readNameFormatter } from "../utils/readNameFormatter";
-
+import { readNameURLFormatter } from "../utils/readNameURLFormatter";
 
 export default function Vote(): JSX.Element {
   const [dog1, setDog1] = useState<string>("");
@@ -52,7 +51,7 @@ export default function Vote(): JSX.Element {
                 width={57}
               />
             </button>
-            <h3>{dogbreedfinder(dog1)}</h3>
+            <h3>{readNameURLFormatter(dog1)}</h3>
           </div>
         </div>
 
@@ -67,7 +66,7 @@ export default function Vote(): JSX.Element {
                 width={57}
               />
             </button>
-            <h3>{readNameFormatter(dogbreedfinder(dog2))}</h3>
+            <h3>{readNameURLFormatter(dog2)}</h3>
           </div>
         </div>
       </section>
