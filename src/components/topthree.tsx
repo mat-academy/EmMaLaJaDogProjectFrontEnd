@@ -16,8 +16,6 @@ interface TopThreeProps {
 export default function TopThree(props: TopThreeProps): JSX.Element {
   const top3Dogs = props.top10Dogs.slice(0, 3);
 
-  console.log(top3Dogs);
-
   function handleClick() {
     props.toggle(!props.toggleValue);
   }
