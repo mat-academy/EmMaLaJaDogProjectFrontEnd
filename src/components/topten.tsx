@@ -1,3 +1,7 @@
+import { useEffect, useState} from 'react';
+import axios from 'axios';
+import nameToImageURL from "../utils/nameToImageURL"
+
 //top10list
 //endless scroll component
 //goes through the ten topdogs
@@ -5,6 +9,9 @@
 interface TopDogsInterface {
   breed_name: string;
   count: number;
+}
+interface topTenFullInfoInterface extends TopDogsInterface {
+  image_url: string;
 }
 
 interface TopTenProps {
@@ -20,6 +27,33 @@ from 50 to 76.9% roughly.
 */
 
 export default function TopTen(props: TopTenProps): JSX.Element {
+
+  const [topTenFullInfo, setTopTenFullInfo] = useState<topTenFullInfoInterface[]>()
+
+  useEffect( () => {
+    const getAllImageURL = async () => {
+      const mapDogToFullInfo = async (dogInfo: TopDogsInterface) =>  {
+        const name_url = nameToImageURL(dogInfo.breed_name);
+        const URL_STRING = 'https://dog.ceo/api/breed/' + name_url + '/images/random';
+        const resp = await axios.get(URL_STRING)
+        const imageURL: string = resp.data.message;
+
+        console.log(imageURL)
+
+        const dogFullInfo:topTenFullInfoInterface = {breed_name: dogInfo.breed_name, count: dogInfo.count, image_url: imageURL}   
+
+        return dogFullInfo
+    }
+    const unresolvedMappedTopDogs = props.top10Dogs.map(mapDogToFullInfo)
+
+    const newTopTenFullInfo = await Promise.all(unresolvedMappedTopDogs)
+
+    setTopTenFullInfo(newTopTenFullInfo)
+    } 
+    getAllImageURL();
+
+  }, [])
+
   return (
     <>
       <h1 className="title">POPULAR BREEDS</h1>

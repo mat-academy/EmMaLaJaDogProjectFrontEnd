@@ -19,7 +19,6 @@ export default function Main(): JSX.Element {
         "https://emmalaja-pupvote.herokuapp.com/votes"
       );
       setTopDogs(response.data);
-      console.log(response.data);
     }
     getTopDogs();
   }, [toggleRefresh]);
@@ -34,11 +33,13 @@ export default function Main(): JSX.Element {
         />
       )}
       <Vote />
+      {topDogs.length > 1 &&(
       <TopTen
         top10Dogs={topDogs}
         toggle={setToggleRefresh}
         toggleValue={toggleRefresh}
       />
+      )}
     </>
   );
 }
