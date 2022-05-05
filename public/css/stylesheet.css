@@ -28,7 +28,7 @@ main {
     background: #C2c9cf;
     color: white;
     padding: 20px;
-    margin-top: 30px;
+    margin-top: 40px;
 }
 
 .logo {
@@ -147,20 +147,27 @@ main {
 
 .top10 {
     background: #C2c9cf;
-    height: 400px;
+    height: 450px;
     position: relative;
     overflow: hidden;
 }
 
 .top10card {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
     background: #E5E5E5;
-    
+    padding: 10px 10px;
+    border-radius: 10px;
+    text-align: center;
 }
 
 .top10card--info {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    margin-right: 15px;
+    margin-left: 15px;
 }
 
 .photobanner {
@@ -173,17 +180,9 @@ main {
     animation: bannermove 20s linear infinite;
     display: flex;
     flex-direction: row;
-    gap: 15px;
+    gap: 25px;
 }
 
-.photobanner:hover {
-    animation-play-state: paused;
-}
-
-/* .photobanner  {    
-    margin: 0 0.5em ;
-    border-radius: 10px;
-  } */
   
   @keyframes bannermove {
     0% {
