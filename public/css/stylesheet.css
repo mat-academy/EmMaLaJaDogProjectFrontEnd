@@ -147,9 +147,20 @@ main {
 
 .top10 {
     background: #C2c9cf;
-    height: 350px;
+    height: 400px;
     position: relative;
     overflow: hidden;
+}
+
+.top10card {
+    background: #E5E5E5;
+    
+}
+
+.top10card--info {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 .photobanner {
@@ -159,19 +170,22 @@ main {
     left:0px; 
     overflow:hidden; 
     white-space: nowrap;
-    animation: bannermove 10s linear infinite;
+    animation: bannermove 20s linear infinite;
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
 }
 
-.photobanner img {    
+/* .photobanner  {    
     margin: 0 0.5em ;
     border-radius: 10px;
-  }
+  } */
   
   @keyframes bannermove {
     0% {
         transform: translate(0, 0);
     }
     100% {
-        transform: translate(-50%, 0);
+        transform: translate(-20%, 0);
     }
   }
