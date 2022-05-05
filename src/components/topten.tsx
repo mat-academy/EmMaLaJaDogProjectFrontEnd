@@ -35,15 +35,21 @@ export default function TopTen(props: TopTenProps): JSX.Element {
       const mapDogToFullInfo = async (dogInfo: TopDogsInterface) =>  {
         const name_url = nameToImageURL(dogInfo.breed_name);
         const URL_STRING = 'https://dog.ceo/api/breed/' + name_url + '/images/random';
-        const resp = await axios.get(URL_STRING)
-        const imageURL: string = resp.data.message;
-
-        console.log(imageURL)
-
-        const dogFullInfo:topTenFullInfoInterface = {breed_name: dogInfo.breed_name, count: dogInfo.count, image_url: imageURL}   
-
-        return dogFullInfo
+        try {
+          const resp = await axios.get(URL_STRING)
+          const imageURL: string = resp.data.message;
+  
+          console.log(imageURL)
+  
+          const dogFullInfo:topTenFullInfoInterface = {breed_name: dogInfo.breed_name, count: dogInfo.count, image_url: imageURL}   
+  
+          return dogFullInfo
+        } catch (error) {
+          console.error(error);
+          return {breed_name: dogInfo.breed_name, count: dogInfo.count, image_url: ""} 
+        } 
     }
+
     const unresolvedMappedTopDogs = props.top10Dogs.map(mapDogToFullInfo)
 
     const newTopTenFullInfo = await Promise.all(unresolvedMappedTopDogs)
