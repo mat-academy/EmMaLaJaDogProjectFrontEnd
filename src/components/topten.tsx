@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import nameToImageURL from "../utils/nameToImageURL";
-import TopDogFullInfoCard from "./TopDogFullInfoCard"
+import TopDogFullInfoCard from "./TopDogFullInfoCard";
 
 //top10list
 //endless scroll component
@@ -65,7 +65,7 @@ export default function TopTen(props: TopTenProps): JSX.Element {
 
       const newTopTenFullInfo = await Promise.all(unresolvedMappedTopDogs);
 
-      const topThreeFullInfo = newTopTenFullInfo.slice(0,3);
+      const topThreeFullInfo = newTopTenFullInfo.slice(0, 3);
 
       setTopTenFullInfo([...newTopTenFullInfo, ...topThreeFullInfo]);
     };
@@ -73,24 +73,23 @@ export default function TopTen(props: TopTenProps): JSX.Element {
   }, [props.top10Dogs]);
 
   const Top10Carousel: JSX.Element[] = topTenFullInfo.map((dogInfo, index) => (
-  <TopDogFullInfoCard
-   key={index}
-   position={index}
-   breed_name={dogInfo.breed_name}
-   count={dogInfo.count}
-   image_url={dogInfo.image_url}
-  />
-  ))
+    <TopDogFullInfoCard
+      key={index}
+      position={index}
+      breed_name={dogInfo.breed_name}
+      count={dogInfo.count}
+      image_url={dogInfo.image_url}
+    />
+  ));
 
   return (
     <>
       <h1 className="title">POPULAR BREEDS</h1>
-      {topTenFullInfo.length > 1 && 
-      <section className="top10">
-        <div className="photobanner">
-         {Top10Carousel}
-        </div>
-      </section> }
+      {topTenFullInfo.length > 1 && (
+        <section className="top10">
+          <div className="photobanner">{Top10Carousel}</div>
+        </section>
+      )}
     </>
   );
 }
