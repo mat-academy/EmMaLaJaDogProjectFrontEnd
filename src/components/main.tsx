@@ -33,12 +33,12 @@ export default function Main(): JSX.Element {
         />
       )}
       <Vote />
-      {topDogs.length > 1 &&(
-      <TopTen
-        top10Dogs={topDogs}
-        toggle={setToggleRefresh}
-        toggleValue={toggleRefresh}
-      />
+      {topDogs.length > 1 && (
+        <TopTen
+          top10Dogs={topDogs}
+          toggle={setToggleRefresh}
+          toggleValue={toggleRefresh}
+        />
       )}
     </>
   );

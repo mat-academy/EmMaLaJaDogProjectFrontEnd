@@ -1,6 +1,6 @@
-import { useEffect, useState} from 'react';
-import axios from 'axios';
-import nameToImageURL from "../utils/nameToImageURL"
+import { useEffect, useState } from "react";
+import axios from "axios";
+import nameToImageURL from "../utils/nameToImageURL";
 
 //top10list
 //endless scroll component
@@ -27,42 +27,52 @@ from 50 to 76.9% roughly.
 */
 
 export default function TopTen(props: TopTenProps): JSX.Element {
+  const [topTenFullInfo, setTopTenFullInfo] = useState<
+    topTenFullInfoInterface[]
+  >([]);
 
-  const [topTenFullInfo, setTopTenFullInfo] = useState<topTenFullInfoInterface[]>()
-
-  useEffect( () => {
+  useEffect(() => {
     const getAllImageURL = async () => {
-      const mapDogToFullInfo = async (dogInfo: TopDogsInterface) =>  {
+      const mapDogToFullInfo = async (dogInfo: TopDogsInterface) => {
         const name_url = nameToImageURL(dogInfo.breed_name);
-        const URL_STRING = 'https://dog.ceo/api/breed/' + name_url + '/images/random';
+        const URL_STRING =
+          "https://dog.ceo/api/breed/" + name_url + "/images/random";
         try {
-          const resp = await axios.get(URL_STRING)
+          const resp = await axios.get(URL_STRING);
           const imageURL: string = resp.data.message;
-  
-          console.log(imageURL)
-  
-          const dogFullInfo:topTenFullInfoInterface = {breed_name: dogInfo.breed_name, count: dogInfo.count, image_url: imageURL}   
-  
-          return dogFullInfo
+
+          console.log(imageURL);
+
+          const dogFullInfo: topTenFullInfoInterface = {
+            breed_name: dogInfo.breed_name,
+            count: dogInfo.count,
+            image_url: imageURL,
+          };
+
+          return dogFullInfo;
         } catch (error) {
           console.error(error);
-          return {breed_name: dogInfo.breed_name, count: dogInfo.count, image_url: ""} 
-        } 
-    }
+          return {
+            breed_name: dogInfo.breed_name,
+            count: dogInfo.count,
+            image_url: "",
+          };
+        }
+      };
 
-    const unresolvedMappedTopDogs = props.top10Dogs.map(mapDogToFullInfo)
+      const unresolvedMappedTopDogs = props.top10Dogs.map(mapDogToFullInfo);
 
-    const newTopTenFullInfo = await Promise.all(unresolvedMappedTopDogs)
+      const newTopTenFullInfo = await Promise.all(unresolvedMappedTopDogs);
 
-    setTopTenFullInfo(newTopTenFullInfo)
-    } 
+      setTopTenFullInfo(newTopTenFullInfo);
+    };
     getAllImageURL();
-
-  }, [])
+  }, [props.top10Dogs]);
 
   return (
     <>
       <h1 className="title">POPULAR BREEDS</h1>
+      {topTenFullInfo.length > 1 && topTenFullInfo[0].breed_name}
       <section className="top10">
         <div className="photobanner">
           <img src="https://i.stack.imgur.com/xckZy.jpg" alt="" />
