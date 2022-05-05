@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import nameToImageURL from "../utils/nameToImageURL";
 import TopDogFullInfoCard from "./TopDogFullInfoCard";
+import fakeDog from "../images/FakeDog.png";
 
 //top10list
 //endless scroll component
@@ -56,7 +57,7 @@ export default function TopTen(props: TopTenProps): JSX.Element {
           return {
             breed_name: dogInfo.breed_name,
             count: dogInfo.count,
-            image_url: "",
+            image_url: fakeDog,
           };
         }
       };
