@@ -28,7 +28,7 @@ main {
     background: #C2c9cf;
     color: white;
     padding: 20px;
-    margin-top: 40px;
+    margin-top: 60px;
 }
 
 .logo {
@@ -52,6 +52,7 @@ main {
     color: #3D3221;
     font-family: Dosis, sans-serif;
     font-size: 1.5rem;
+    margin-top: 40px;
 }
 
 .top3 {
@@ -64,7 +65,8 @@ main {
     border-radius: 10px;
     padding: 20px;
     margin: 20px auto;
-    max-width: 85%;
+    width: 85%;
+    max-width: 900px;
  
 }
 
@@ -111,7 +113,8 @@ main {
     border-radius: 10px;
     padding: 20px;
     margin: 20px auto;
-    max-width: 85%;
+    width: 85%;
+    max-width: 900px;
 }
 
 .voteCard{
@@ -150,6 +153,7 @@ main {
     height: 450px;
     position: relative;
     overflow: hidden;
+    margin-top: 20px;
 }
 
 .top10card {
@@ -160,6 +164,7 @@ main {
     padding: 10px 10px;
     border-radius: 10px;
     text-align: center;
+    color: #948879;
 }
 
 .top10card--info {
@@ -183,6 +188,9 @@ main {
     gap: 25px;
 }
 
+.photobanner:hover {
+    animation-play-state: paused;
+}
   
   @keyframes bannermove {
     0% {
