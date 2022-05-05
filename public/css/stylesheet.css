@@ -176,6 +176,10 @@ main {
     gap: 15px;
 }
 
+.photobanner:hover {
+    animation-play-state: paused;
+}
+
 /* .photobanner  {    
     margin: 0 0.5em ;
     border-radius: 10px;
