@@ -60,14 +60,17 @@ export default function TopThree(props: TopThreeProps): JSX.Element {
 
   useEffect(() => {
     fetchImage1();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
     fetchImage2();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
     fetchImage3();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   function getPawsArray(score: number): string[] {
