@@ -1,7 +1,7 @@
 //voteforgoodboy
 //vote text, flexbox with two random dogs
 import axios from "axios";
-import { useState, useEffect} from "react";
+import { useState, useEffect } from "react";
 import { dogbreedfinder } from "../utils/dogbreedfinder";
 import dog_heart from "../images/dog-heart.svg";
 import { readNameURLFormatter } from "../utils/readNameURLFormatter";
