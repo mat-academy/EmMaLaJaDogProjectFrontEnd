@@ -5,7 +5,6 @@ import TopDogFullInfoCard from "./TopDogFullInfoCard";
 import fakeDog from "../images/FakeDog.png";
 import { readNameFormatter } from "../utils/readNameFormatter";
 
-
 //top10list
 //endless scroll component
 //goes through the ten topdogs
