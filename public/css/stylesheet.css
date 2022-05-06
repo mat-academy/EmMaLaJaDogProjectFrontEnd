@@ -28,7 +28,7 @@ main {
     background: #C2c9cf;
     color: white;
     padding: 20px;
-    margin-top: 60px;
+    margin-top: 80px;
 }
 
 .logo {
@@ -52,7 +52,7 @@ main {
     color: #3D3221;
     font-family: Dosis, sans-serif;
     font-size: 1.5rem;
-    margin-top: 40px;
+    margin-top: 80px;
 }
 
 .top3 {
@@ -72,19 +72,37 @@ main {
 
 .top3--element {
     display: flex;
-    flex-direction: row;
-    gap: 10px;
+    flex-direction: column;
     background: #E5E5E5;
     border-radius: 10px;
     padding: 15px;
-    width: 90%;
-    justify-content: space-between;
+    width: 60%;
     color: #948879;
+    flex-wrap: wrap;
+}
+
+.top3--profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.top3--info {
+    display: flex;
+    flex-direction: row;
+    margin-left: 35px;
+    gap: 80px;
+}
+
+.voteheader {
+    margin: 0 auto;
+    margin-top: 30px;
 }
 
 .pawbar {
     display: flex;
-    justify-content: flex-start;
+    margin-left: 35px;
+    text-align: start;
     letter-spacing: 0.4rem;
     font-size: 1.8rem;
     color: transparent;  
