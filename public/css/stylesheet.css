@@ -183,6 +183,15 @@ main {
     border-radius: 10px;
 }
 
+.dogpicClick {
+    cursor: pointer;
+    float: left;
+    width:  250px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
 .dogprofile{
     display: flex;
     flex-direction: row;

@@ -99,7 +99,7 @@ export default function TopThree(props: TopThreeProps): JSX.Element {
             </div>
             <img
               onClick={fetchImage1}
-              className="dogpic"
+              className="dogpicClick"
               src={dogImage1}
               alt="dog"
             />
@@ -115,7 +115,7 @@ export default function TopThree(props: TopThreeProps): JSX.Element {
             </div>
             <img
               onClick={fetchImage2}
-              className="dogpic"
+              className="dogpicClick"
               src={dogImage2}
               alt="dog"
             />
@@ -130,7 +130,7 @@ export default function TopThree(props: TopThreeProps): JSX.Element {
               <h3>⭐ {top3Dogs[2].count}</h3>
             </div>
             <img
-              className="dogpic"
+              className="dogpicClick"
               src={dogImage3}
               alt="dog"
               onClick={fetchImage3}
