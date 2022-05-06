@@ -47,33 +47,33 @@ export default function TopThree(props: TopThreeProps): JSX.Element {
       <div className="top3">
         <div className="top3--element">
           <div className="top3--profile">
-          <div className="top3--info">
-            <h3>{readNameFormatter(top3Dogs[0].breed_name)}</h3>
-            <h3>⭐ {top3Dogs[0].count}</h3>
-          </div>
-          <img className="dogpic" src={fakeDog} alt="dog" />
+            <div className="top3--info">
+              <h3>{readNameFormatter(top3Dogs[0].breed_name)}</h3>
+              <h3>⭐ {top3Dogs[0].count}</h3>
+            </div>
+            <img className="dogpic" src={fakeDog} alt="dog" />
           </div>
           <h3 className="voteheader">VOTE RATIO:</h3>
           <h2 className="pawbar">{dogPawArray1}</h2>
         </div>
         <div className="top3--element">
-        <div className="top3--profile">
-          <div className="top3--info">
-            <h3>{readNameFormatter(top3Dogs[1].breed_name)}</h3>
-            <h3>⭐ {top3Dogs[1].count}</h3>
-          </div>
-          <img className="dogpic" src={fakeDog}  alt="dog" />
+          <div className="top3--profile">
+            <div className="top3--info">
+              <h3>{readNameFormatter(top3Dogs[1].breed_name)}</h3>
+              <h3>⭐ {top3Dogs[1].count}</h3>
+            </div>
+            <img className="dogpic" src={fakeDog} alt="dog" />
           </div>
           <h3 className="voteheader">VOTE RATIO:</h3>
           <h2 className="pawbar">{dogPawArray2}</h2>
         </div>
         <div className="top3--element">
-        <div className="top3--profile">
-          <div className="top3--info">
-            <h3>{readNameFormatter(top3Dogs[2].breed_name)}</h3>
-            <h3>⭐ {top3Dogs[2].count}</h3>
-          </div>
-          <img className="dogpic" src={fakeDog}  alt="dog" />
+          <div className="top3--profile">
+            <div className="top3--info">
+              <h3>{readNameFormatter(top3Dogs[2].breed_name)}</h3>
+              <h3>⭐ {top3Dogs[2].count}</h3>
+            </div>
+            <img className="dogpic" src={fakeDog} alt="dog" />
           </div>
           <h3 className="voteheader">VOTE RATIO:</h3>
           <h2 className="pawbar">{dogPawArray3}</h2>
