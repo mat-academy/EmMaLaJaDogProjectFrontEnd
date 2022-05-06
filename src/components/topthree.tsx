@@ -40,40 +40,33 @@ export default function TopThree(props: TopThreeProps): JSX.Element {
       const name_url = nameToImageURL(top3Dogs[0].breed_name);
       const URL_STRING =
         "https://dog.ceo/api/breed/" + name_url + "/images/random";
-      const response = await axios.get(
-        URL_STRING
-      );
+      const response = await axios.get(URL_STRING);
       setDogImage1(response.data.message);
     }
     fetchImage1();
-  },[])
-  
+  }, []);
+
   useEffect(() => {
     async function fetchImage2() {
       const name_url = nameToImageURL(top3Dogs[1].breed_name);
       const URL_STRING =
         "https://dog.ceo/api/breed/" + name_url + "/images/random";
-      const response = await axios.get(
-        URL_STRING
-      );
+      const response = await axios.get(URL_STRING);
       setDogImage2(response.data.message);
     }
     fetchImage2();
-  },[])
+  }, []);
 
   useEffect(() => {
     async function fetchImage3() {
       const name_url = nameToImageURL(top3Dogs[2].breed_name);
       const URL_STRING =
         "https://dog.ceo/api/breed/" + name_url + "/images/random";
-      const response = await axios.get(
-        URL_STRING
-      );
+      const response = await axios.get(URL_STRING);
       setDogImage3(response.data.message);
     }
     fetchImage3();
-  },[]) 
-
+  }, []);
 
   function getPawsArray(score: number): string[] {
     let count = 0;
