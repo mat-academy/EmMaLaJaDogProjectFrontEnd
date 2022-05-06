@@ -86,7 +86,9 @@ main {
     display: flex;
     justify-content: flex-start;
     letter-spacing: 0.4rem;
-    font-size: 1.6rem;
+    font-size: 1.8rem;
+    color: transparent;  
+    text-shadow: 0 0 0 #8DA8BF;
 }
 
 .top3--button {
