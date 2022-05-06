@@ -4,7 +4,6 @@
 import { useState, useEffect } from "react";
 import { readNameFormatter } from "../utils/readNameFormatter";
 import nameToImageURL from "../utils/nameToImageURL";
-import fakeDog from "../images/FakeDog.png";
 import axios from "axios";
 
 interface TopDogsInterface {
