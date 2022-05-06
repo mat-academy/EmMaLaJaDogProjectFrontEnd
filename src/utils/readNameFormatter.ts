@@ -10,16 +10,3 @@ export function readNameFormatter(name: string): string {
   }
   return read_name;
 }
-
-// "greyhound-italian"
-// to
-// "italian greyhound"
-// "Italian Greyhound"
-
-// "greyhound"
-// to
-// "greyhound"
-
-// "null"
-// to
-// "null"

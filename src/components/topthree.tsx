@@ -23,17 +23,18 @@ export default function TopThree(props: TopThreeProps): JSX.Element {
   function handleClick() {
     props.toggle(!props.toggleValue);
   }
-
+  // dogImage variable contains the image file from our dogAPI
   const [dogImage1, setDogImage1] = useState<string>("");
   const [dogImage2, setDogImage2] = useState<string>("");
   const [dogImage3, setDogImage3] = useState<string>("");
 
   const voteMax = top3Dogs[0].count;
   const dog1Score = 10;
-
+  // Stops the dogScore from exceeding 10
   const dog2Score = Math.round((top3Dogs[1].count / voteMax) * 10);
   const dog3Score = Math.round((top3Dogs[2].count / voteMax) * 10);
 
+  // fetching a random image of the topDogs based on breed_name
   async function fetchImage1() {
     const name_url = nameToImageURL(top3Dogs[0].breed_name);
     const URL_STRING =
@@ -58,6 +59,7 @@ export default function TopThree(props: TopThreeProps): JSX.Element {
     setDogImage3(response.data.message);
   }
 
+  // 
   useEffect(() => {
     fetchImage1();
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -73,6 +75,7 @@ export default function TopThree(props: TopThreeProps): JSX.Element {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  // takes dogscore and translates it into pawPrints
   function getPawsArray(score: number): string[] {
     let count = 0;
     const arr = [];
@@ -86,6 +89,8 @@ export default function TopThree(props: TopThreeProps): JSX.Element {
   const dogPawArray1 = getPawsArray(dog1Score);
   const dogPawArray2 = getPawsArray(dog2Score);
   const dogPawArray3 = getPawsArray(dog3Score);
+
+  // returns three cards with breed_name, score, image, paw-vote ratio
   return (
     <>
       <h1 className="title">TOP BREEDS</h1>

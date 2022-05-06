@@ -9,10 +9,14 @@ interface TopDogsInterface {
   count: number;
 }
 
+
 export default function Main(): JSX.Element {
+  // topDogs is an array that stores the breed_Names and vote count for the top10 dogs
   const [topDogs, setTopDogs] = useState<TopDogsInterface[]>([]);
+  // toggleRefresh sets the refresh state to be false to prevent a refresh of the next render
   const [toggleRefresh, setToggleRefresh] = useState<boolean>(false);
 
+  // GET request to pull the top10 dogs from our database
   useEffect(() => {
     async function getTopDogs() {
       const response = await axios.get(
@@ -23,6 +27,10 @@ export default function Main(): JSX.Element {
     getTopDogs();
   }, [toggleRefresh]);
 
+
+  /* returns child components with props being passed into them
+  (topDogs.length > 1)expression only allows the props to be passed into child components when the array is populated
+  */
   return (
     <>
       {topDogs.length > 1 && (
