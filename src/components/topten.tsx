@@ -16,7 +16,7 @@ interface TopDogsInterface {
 interface topTenFullInfoInterface extends TopDogsInterface {
   image_url: string;
 }
-
+// When toggleValue changes it fetches data from our database
 interface TopTenProps {
   top10Dogs: TopDogsInterface[];
   toggle: React.Dispatch<React.SetStateAction<boolean>>;
@@ -30,17 +30,22 @@ from 50 to 76.9% roughly.
 */
 
 export default function TopTen(props: TopTenProps): JSX.Element {
+  // Is the useState for the top10Dogs object
   const [topTenFullInfo, setTopTenFullInfo] = useState<
     topTenFullInfoInterface[]
   >([]);
 
   useEffect(() => {
+    // builds a random dog Image from the breed name
     const getAllImageURL = async () => {
+      
       const mapDogToFullInfo = async (dogInfo: TopDogsInterface) => {
+        // helper function used to replace the '-' to a '/' if present in breed_name
         const name_url = nameToImageURL(dogInfo.breed_name);
         const URL_STRING =
           "https://dog.ceo/api/breed/" + name_url + "/images/random";
         try {
+          // axios pulls dog information for carousel and package it into an object
           const resp = await axios.get(URL_STRING);
           const imageURL: string = resp.data.message;
 
@@ -53,7 +58,8 @@ export default function TopTen(props: TopTenProps): JSX.Element {
           };
 
           return dogFullInfo;
-        } catch (error) {
+        } // builds an alternative object if try element fails
+          catch (error) {
           console.error(error);
           return {
             breed_name: dogInfo.breed_name,
@@ -63,17 +69,19 @@ export default function TopTen(props: TopTenProps): JSX.Element {
         }
       };
 
+      // Mapping top dogs 
       const unresolvedMappedTopDogs = props.top10Dogs.map(mapDogToFullInfo);
-
+      // Wait for every element to be resolved and returns an array
       const newTopTenFullInfo = await Promise.all(unresolvedMappedTopDogs);
-
+      // We use the top3 Dogs to cover the refresh time of the carousel 
       const topThreeFullInfo = newTopTenFullInfo.slice(0, 3);
-
+      // We are initialising the state topTenFullInfo
       setTopTenFullInfo([...newTopTenFullInfo, ...topThreeFullInfo]);
     };
     getAllImageURL();
   }, [props.top10Dogs]);
 
+  // We are mapping our top10 Dogs into our TopDogFullInfoCard custom component
   const Top10Carousel: JSX.Element[] = topTenFullInfo.map((dogInfo, index) => (
     <TopDogFullInfoCard
       key={index}
@@ -83,7 +91,7 @@ export default function TopTen(props: TopTenProps): JSX.Element {
       image_url={dogInfo.image_url}
     />
   ));
-
+    // We are returning our top10Carousel in our return statement
   return (
     <>
       <h1 className="title">POPULAR BREEDS</h1>

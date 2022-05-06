@@ -7,11 +7,13 @@ import dog_heart from "../images/dog-heart.svg";
 import { readNameURLFormatter } from "../utils/readNameURLFormatter";
 
 export default function Vote(): JSX.Element {
+  // dog is an image of a dog obtained from the dogAPI
   const [dog1, setDog1] = useState<string>("");
   const [dog2, setDog2] = useState<string>("");
   const [submitted, setSubmitted] = useState<boolean>(false);
 
   useEffect(() => {
+    // fetching the dog images from the dogAPI
     async function GetDogPix() {
       const response1 = await axios.get(
         "https://dog.ceo/api/breeds/image/random"
@@ -25,9 +27,11 @@ export default function Vote(): JSX.Element {
     GetDogPix();
   }, [submitted]);
 
+  // helper function to obtain dogbreed name
   const dogbreed1 = dogbreedfinder(dog1);
   const dogbreed2 = dogbreedfinder(dog2);
 
+  // POST request to submit vote for specific dog breed
   async function submitFavourites(dogbreed: string) {
     await axios.post("https://emmalaja-pupvote.herokuapp.com/", {
       breed_name: dogbreed,
@@ -35,7 +39,7 @@ export default function Vote(): JSX.Element {
     setSubmitted((previous) => !previous);
     console.log(submitFavourites);
   }
-
+  // return statement with dogImages with onClick functionality to submit vote
   return (
     <>
       <h1 className="title">VOTE NOW</h1>

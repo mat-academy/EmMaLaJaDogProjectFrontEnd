@@ -8,6 +8,7 @@ interface topDogFullInfoCardProps {
 export default function TopDogFullInfoCard(
   props: topDogFullInfoCardProps
 ): JSX.Element {
+  // Props used to map dogs from top10dogs individually
   return (
     <>
       <section className="top10card">
