@@ -123,7 +123,7 @@ main {
 
 .pawbar {
     display: flex;
-    margin-left: 35px;
+    margin-left: 10%;
     text-align: start;
     letter-spacing: 0.4rem;
     font-size: 1.8rem;
