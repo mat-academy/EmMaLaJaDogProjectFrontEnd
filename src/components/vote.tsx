@@ -11,6 +11,8 @@ export default function Vote(): JSX.Element {
   const [dog2, setDog2] = useState<string>("");
   const [submitted, setSubmitted] = useState<boolean>(false);
 
+  const [votesCount, setVoteCount] = useState<number>(0);
+
   useEffect(() => {
     async function GetDogPix() {
       const response1 = await axios.get(
@@ -33,12 +35,12 @@ export default function Vote(): JSX.Element {
       breed_name: dogbreed,
     });
     setSubmitted((previous) => !previous);
-    console.log(submitFavourites);
+    setVoteCount((previous) => previous + 1)
   }
 
   return (
     <>
-      <h1 className="title">VOTE NOW</h1>
+      <h1 className="title">VOTE COUNT: {votesCount} </h1>
       <section className="voting">
         <div className="voteCard">
           <img className="dogpic" src={dog1} alt="" />
