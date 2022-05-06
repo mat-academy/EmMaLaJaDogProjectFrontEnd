@@ -123,12 +123,15 @@ main {
 
 .pawbar {
     display: flex;
-    margin-left: 10%;
+    margin-left: 20px;
     text-align: start;
     letter-spacing: 0.4rem;
-    font-size: 1.8rem;
+    font-size: 1.5vw;
     color: transparent;  
     text-shadow: 0 0 0 #8DA8BF;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .top3--button {
