@@ -34,37 +34,43 @@ export default function TopThree(props: TopThreeProps): JSX.Element {
   const dog2Score = Math.round((top3Dogs[1].count / voteMax) * 10);
   const dog3Score = Math.round((top3Dogs[2].count / voteMax) * 10);
 
+  async function fetchImage1() {
+    const name_url = nameToImageURL(top3Dogs[0].breed_name);
+    const URL_STRING =
+      "https://dog.ceo/api/breed/" + name_url + "/images/random";
+    const response = await axios.get(URL_STRING);
+    setDogImage1(response.data.message);
+  }
+
+  async function fetchImage2() {
+    const name_url = nameToImageURL(top3Dogs[1].breed_name);
+    const URL_STRING =
+      "https://dog.ceo/api/breed/" + name_url + "/images/random";
+    const response = await axios.get(URL_STRING);
+    setDogImage2(response.data.message);
+  }
+
+  async function fetchImage3() {
+    const name_url = nameToImageURL(top3Dogs[2].breed_name);
+    const URL_STRING =
+      "https://dog.ceo/api/breed/" + name_url + "/images/random";
+    const response = await axios.get(URL_STRING);
+    setDogImage3(response.data.message);
+  }
+
   useEffect(() => {
-    async function fetchImage1() {
-      const name_url = nameToImageURL(top3Dogs[0].breed_name);
-      const URL_STRING =
-        "https://dog.ceo/api/breed/" + name_url + "/images/random";
-      const response = await axios.get(URL_STRING);
-      setDogImage1(response.data.message);
-    }
     fetchImage1();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
-    async function fetchImage2() {
-      const name_url = nameToImageURL(top3Dogs[1].breed_name);
-      const URL_STRING =
-        "https://dog.ceo/api/breed/" + name_url + "/images/random";
-      const response = await axios.get(URL_STRING);
-      setDogImage2(response.data.message);
-    }
     fetchImage2();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
-    async function fetchImage3() {
-      const name_url = nameToImageURL(top3Dogs[2].breed_name);
-      const URL_STRING =
-        "https://dog.ceo/api/breed/" + name_url + "/images/random";
-      const response = await axios.get(URL_STRING);
-      setDogImage3(response.data.message);
-    }
     fetchImage3();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   function getPawsArray(score: number): string[] {
@@ -91,7 +97,12 @@ export default function TopThree(props: TopThreeProps): JSX.Element {
               <p></p>
               <h3>⭐ {top3Dogs[0].count}</h3>
             </div>
-            <img className="dogpic" src={dogImage1} alt="dog" />
+            <img
+              onClick={fetchImage1}
+              className="dogpic"
+              src={dogImage1}
+              alt="dog"
+            />
           </div>
           <h3 className="voteheader">VOTE RATIO:</h3>
           <h2 className="pawbar">{dogPawArray1}</h2>
@@ -102,7 +113,12 @@ export default function TopThree(props: TopThreeProps): JSX.Element {
               <h3>{readNameFormatter(top3Dogs[1].breed_name)}</h3>
               <h3>⭐ {top3Dogs[1].count}</h3>
             </div>
-            <img className="dogpic" src={dogImage2} alt="dog" />
+            <img
+              onClick={fetchImage2}
+              className="dogpic"
+              src={dogImage2}
+              alt="dog"
+            />
           </div>
           <h3 className="voteheader">VOTE RATIO:</h3>
           <h2 className="pawbar">{dogPawArray2}</h2>
@@ -113,7 +129,12 @@ export default function TopThree(props: TopThreeProps): JSX.Element {
               <h3>{readNameFormatter(top3Dogs[2].breed_name)}</h3>
               <h3>⭐ {top3Dogs[2].count}</h3>
             </div>
-            <img className="dogpic" src={dogImage3} alt="dog" />
+            <img
+              className="dogpic"
+              src={dogImage3}
+              alt="dog"
+              onClick={fetchImage3}
+            />
           </div>
           <h3 className="voteheader">VOTE RATIO:</h3>
           <h2 className="pawbar">{dogPawArray3}</h2>
