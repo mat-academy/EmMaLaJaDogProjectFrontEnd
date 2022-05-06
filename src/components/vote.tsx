@@ -5,14 +5,15 @@ import { useState, useEffect } from "react";
 import { dogbreedfinder } from "../utils/dogbreedfinder";
 import dog_heart from "../images/dog-heart.svg";
 import { readNameURLFormatter } from "../utils/readNameURLFormatter";
-// import useSound from 'use-sound'
-// import barkSound from "../sounds/bark.mp3";
+import useSound from "use-sound";
+import barkSound from "../sounds/bark.mp3";
 
 export default function Vote(): JSX.Element {
   const [dog1, setDog1] = useState<string>("");
   const [dog2, setDog2] = useState<string>("");
   const [submitted, setSubmitted] = useState<boolean>(false);
   const [votesCount, setVoteCount] = useState<number>(0);
+  const [playSound] = useSound(barkSound);
 
   useEffect(() => {
     async function GetDogPix() {
@@ -35,6 +36,7 @@ export default function Vote(): JSX.Element {
     await axios.post("https://emmalaja-pupvote.herokuapp.com/", {
       breed_name: dogbreed,
     });
+    playSound();
     setSubmitted((previous) => !previous);
     setVoteCount((previous) => previous + 1);
   }
