@@ -85,8 +85,8 @@ main {
 .pawbar {
     display: flex;
     justify-content: flex-start;
-    letter-spacing: 0.2rem;
-    font-size: 1.5rem;
+    letter-spacing: 0.4rem;
+    font-size: 1.6rem;
 }
 
 .top3--button {
