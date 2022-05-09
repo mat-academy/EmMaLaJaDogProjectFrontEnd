@@ -59,7 +59,7 @@ export default function TopThree(props: TopThreeProps): JSX.Element {
     setDogImage3(response.data.message);
   }
 
-  // 
+  //
   useEffect(() => {
     fetchImage1();
     // eslint-disable-next-line react-hooks/exhaustive-deps
