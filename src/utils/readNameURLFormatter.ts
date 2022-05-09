@@ -6,7 +6,8 @@ export function readNameURLFormatter(url: string): string {
     const url_name: string = urlArray[4];
     if (url.includes("-")) {
       const originalArr: string[] = url_name.split("-");
-      const original_read_name: string = originalArr[1] + " " + originalArr[0];
+      const firstWord = originalArr[1] === undefined ? "" : originalArr[1];
+      const original_read_name: string = firstWord + " " + originalArr[0];
       read_name = original_read_name.toUpperCase();
     } else {
       read_name = url_name.toUpperCase();
