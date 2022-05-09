@@ -74,7 +74,7 @@ export default function TopTen(props: TopTenProps): JSX.Element {
       // Wait for every element to be resolved and returns an array
       const newTopTenFullInfo = await Promise.all(unresolvedMappedTopDogs);
       // We use the top3 Dogs to cover the refresh time of the carousel 
-      const topThreeFullInfo = newTopTenFullInfo.slice(0, 3);
+      const topThreeFullInfo = newTopTenFullInfo.slice(0, 7);
       // We are initialising the state topTenFullInfo
       setTopTenFullInfo([...newTopTenFullInfo, ...topThreeFullInfo]);
     };
