@@ -38,7 +38,6 @@ export default function TopTen(props: TopTenProps): JSX.Element {
   useEffect(() => {
     // builds a random dog Image from the breed name
     const getAllImageURL = async () => {
-      
       const mapDogToFullInfo = async (dogInfo: TopDogsInterface) => {
         // helper function used to replace the '-' to a '/' if present in breed_name
         const name_url = nameToImageURL(dogInfo.breed_name);
@@ -58,8 +57,8 @@ export default function TopTen(props: TopTenProps): JSX.Element {
           };
 
           return dogFullInfo;
-        } // builds an alternative object if try element fails
-          catch (error) {
+        } catch (error) {
+          // builds an alternative object if try element fails
           console.error(error);
           return {
             breed_name: dogInfo.breed_name,
@@ -69,12 +68,12 @@ export default function TopTen(props: TopTenProps): JSX.Element {
         }
       };
 
-      // Mapping top dogs 
+      // Mapping top dogs
       const unresolvedMappedTopDogs = props.top10Dogs.map(mapDogToFullInfo);
       // Wait for every element to be resolved and returns an array
       const newTopTenFullInfo = await Promise.all(unresolvedMappedTopDogs);
-      // We use the top3 Dogs to cover the refresh time of the carousel 
-      const topThreeFullInfo = newTopTenFullInfo.slice(0, 3);
+      // We use the top3 Dogs to cover the refresh time of the carousel
+      const topThreeFullInfo = newTopTenFullInfo.slice(0, 7);
       // We are initialising the state topTenFullInfo
       setTopTenFullInfo([...newTopTenFullInfo, ...topThreeFullInfo]);
     };
@@ -91,7 +90,7 @@ export default function TopTen(props: TopTenProps): JSX.Element {
       image_url={dogInfo.image_url}
     />
   ));
-    // We are returning our top10Carousel in our return statement
+  // We are returning our top10Carousel in our return statement
   return (
     <>
       <h1 className="title">POPULAR BREEDS</h1>
